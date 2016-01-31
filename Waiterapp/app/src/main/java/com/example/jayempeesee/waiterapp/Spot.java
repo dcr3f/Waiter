@@ -1,10 +1,13 @@
 package com.example.jayempeesee.waiterapp;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
- * Created by John on 1/30/2016.
+ *
  */
-public class Spot {
+public class Spot{
     String name;
     String waitTime;
     String visitors;
@@ -21,13 +24,13 @@ public class Spot {
         this.visitors = visitors;
     }
 
-    public String getName(){
+    public  String getName(){
         return name;
     }
     public String getWaitTime(){
         return waitTime;
     }
-    public String getVisitors(){
+    public  String getVisitors(){
         return visitors;
     }
 }
