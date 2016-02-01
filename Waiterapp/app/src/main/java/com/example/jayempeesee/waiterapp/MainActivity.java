@@ -33,8 +33,8 @@ import java.util.ArrayList;
 
 import static android.widget.Toast.*;
 
-
-public class MainActivity extends AppCompatActivity {
+`
+public class /MainActivity extends AppCompatActivity {
 
     EditText editText;
     //Button mButton;
