@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +33,15 @@ public class MainActivity extends AppCompatActivity {
         downloadData = new ParseSpotJson("https://t1f3ktfmy8.execute-api.us-west-2.amazonaws.com/prod/getdata");
         downloadData.execute();
 
+
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String searchText = txtSearch.getText().toString();
                 Intent intent = new Intent(MainActivity.this, WaiterList.class);
-                intent.putExtra("extra", searchText);
+                intent.putExtra("searchtext", searchText);
+                intent.putExtra("object", downloadData);
+                setResult(RESULT_OK, intent);
                 startActivity(intent);
             }
         });

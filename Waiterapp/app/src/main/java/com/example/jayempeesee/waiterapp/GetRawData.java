@@ -6,13 +6,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
  * Created by Chase Rutledge on 2/19/2016.
  */
-public class GetRawData {
+public class GetRawData implements Serializable {
     private String mData;
     private String mRawUrl;
     private String LOG_TAG = GetRawData.class.getSimpleName();

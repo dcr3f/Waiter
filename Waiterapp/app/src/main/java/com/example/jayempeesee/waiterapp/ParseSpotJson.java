@@ -6,12 +6,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by John on 1/30/2016.
  */
-public class ParseSpotJson extends GetRawData {
+public class ParseSpotJson extends GetRawData implements Serializable {
 
     private ArrayList<Spot> spotArrayList;
     private String rawURL;
@@ -27,9 +28,37 @@ public class ParseSpotJson extends GetRawData {
 
     }
 
+    public void setRawURL(String URL){
+        this.rawURL = URL;
+    }
+
     public ArrayList<Spot> getSpots(){
         return this.spotArrayList;
     }
+
+//    // 99.9% of the time you can just ignore this
+//    @Override
+//    public int describeContents() {
+//        return 0;
+//    }
+//
+//    // write your object's data to the passed-in Parcel
+//    @Override
+//    public void writeToParcel(Parcel out, int flags) {
+//        out.writeString(this.rawURL);
+//        out.writeString(this.mData);
+//    }
+//
+//    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+//    public static final Parcelable.Creator<ParseSpotJson> CREATOR = new Parcelable.Creator<ParseSpotJson>() {
+//        public ParseSpotJson createFromParcel(Parcel in) {
+//            return new ParseSpotJson(in);
+//        }
+//
+//        public ParseSpotJson[] newArray(int size) {
+//            return new ParseSpotJson[size];
+//        }
+//    };
 
     public boolean Parse(){
         final String SPOT_ITEMS = "array";

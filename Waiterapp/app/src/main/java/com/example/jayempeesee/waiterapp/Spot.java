@@ -1,10 +1,12 @@
 package com.example.jayempeesee.waiterapp;
 
 
+import java.io.Serializable;
+
 /**
  *
  */
-public class Spot{
+public class Spot implements Serializable{
     private String name;
     private String waitTime;
     private String visitors;

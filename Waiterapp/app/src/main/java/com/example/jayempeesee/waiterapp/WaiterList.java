@@ -10,9 +10,7 @@ import android.widget.TextView;
 public class WaiterList extends AppCompatActivity {
     private ListView listView;
     private TextView message;
-    ParseSpotJson adapter;
-
-
+    private ParseSpotJson  adapter;
 
 
     @Override
@@ -20,9 +18,9 @@ public class WaiterList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.waiter_list);
 
-
         Intent intent = getIntent();
-        String searchText = intent.getExtras().getString("extra");
+        String searchText = intent.getExtras().getString("searchtext");
+        adapter = (ParseSpotJson) intent.getSerializableExtra("object");
         message = (TextView) findViewById(R.id.textView2);
         message.setText("The Searched String was: " + searchText);
         listView = (ListView) findViewById(R.id.actualList);
