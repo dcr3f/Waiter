@@ -1,48 +1,40 @@
 package com.example.jayempeesee.waiterapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-//import org.json.simple.parser.ParseException;
-//import org.json.simple.parser.JSONParser;
-//import Spot;
-
-import java.util.ArrayList;
-
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class WaiterList extends AppCompatActivity {
-    ArrayList<Spot> spotArray;
-    SpotAdapter adapter;
-    ListView listView;
+    private ListView listView;
+    private TextView message;
+    ParseSpotJson adapter;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.waiter_list);
-        Intent i = getIntent();
-       spotArray = new ArrayList<Spot>();
-        spotArray.add(new Spot("Taco Bell", "22", "8 min" ));
-        adapter = new SpotAdapter(this, spotArray);
+
+
+        Intent intent = getIntent();
+        String searchText = intent.getExtras().getString("extra");
+        message = (TextView) findViewById(R.id.textView2);
+        message.setText("The Searched String was: " + searchText);
         listView = (ListView) findViewById(R.id.actualList);
 
-      // spotArray = i.getStringArrayListExtra("spotArray"); not a string array?
+        ArrayAdapter<Spot> arrayAdapter = new ArrayAdapter<Spot>(WaiterList.this,R.layout.waiter_list_item, adapter.getSpots());
+        listView.setAdapter(arrayAdapter);
+
+
+
+
+
     }
-
-
-
-
-    @Override
-    protected void onStart(){
-        super.onStart();
-        listView.setAdapter(adapter);
-
-       // Spot newSpot = new Spot("")
-    }
-
-
-
 
 
 }

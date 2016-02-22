@@ -16,7 +16,7 @@
         android:layout_height="45dp"
         android:text="@string/search"
         android:textStyle="bold"
-        android:id="@+id/button2"
+        android:id="@+id/search_button"
         android:background="#a7a7a7"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -25,7 +25,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:id="@+id/searchView"
+        android:id="@+id/search_edit"
         android:hint="@string/Where"
         android:textStyle="italic"
         android:inputType="text"
